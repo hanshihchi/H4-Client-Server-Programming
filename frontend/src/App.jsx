@@ -8,17 +8,14 @@ export default function App() {
   const [room, setRoom] = useState('Room 1');
   const [onlineUsers, setOnlineUsers] = useState([]);
 
-  // Set username and join the chosen room
   const handleSetUsername = (event) => {
     event.preventDefault();
     if (tempUsername.trim()) {
       setUsername(tempUsername);
-      // Emit joinRoom event to the server with username and room
       socket.emit('joinRoom', { username: tempUsername, room });
     }
   };
 
-  // Handle sending a chat message
   const handleSendMessage = (event) => {
     event.preventDefault();
     const input = event.target.elements.msg;
@@ -28,19 +25,19 @@ export default function App() {
   };
 
   useEffect(() => {
-    // Listen for chat messages (including system notifications)
+    // chat messages
     socket.on('message', (data) => {
       console.log('message from server', data);
       setMessageHistory((prevMessages) => [...prevMessages, data]);
     });
 
-    // Listen for updates on the online users list for this room
+    // online users
     socket.on('onlineUsers', (users) => {
       setOnlineUsers(users);
     });
   }, []);
 
-  // If no username is set, show a form to set it and choose a room.
+  // For new users to set username and choose a room.
   if (!username) {
     return (
       <div>
@@ -65,7 +62,6 @@ export default function App() {
       </div>
     );
   }
-
   return (
     <>
       <h1>Socket.io Chat App</h1>
