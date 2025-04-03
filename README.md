@@ -1,5 +1,7 @@
 # H4-Client-Server-Programming
 
+**Video Link:** https://youtu.be/QnSoLBkClqM
+
 ## Overview
 
 This project is a simple real-time chat application built with a Node.js/Express/Socket.IO backend and a React (v19) + Vite frontend.
