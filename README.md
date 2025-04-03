@@ -13,7 +13,7 @@ This project is a simple real-time chat application built with a Node.js/Express
 ## Additional Features
 
 - **Multiple Chat Rooms:**  
-  - Users can select from different chat rooms (e.g., General, Sports, Technology) when joining.
+  - Users can select from different chat rooms (e.g., Room 1 - 3) when joining.
   - Messages are broadcast only within the selected room.
 
 - **Online User List/Count:**  
